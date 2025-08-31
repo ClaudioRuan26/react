@@ -1,70 +1,56 @@
-import { useState } from "react";
-import AddTask from "./components/AddTask"
-import Tasks from "./components/Tasks"
-import {v4} from 'uuid';
+import Logos from "./components/Logos"
 
 function App() {
-  const [tasks, setTasks] = useState([{
-      id: 1,
-      title: "Estudar prog",
-      description: "Estudar react",
-      completed: false
-    },
-    {
-      id: 2,
-      title: "Estudar react",
-      description: "Estudar hooks",
-      completed: false
-    }
-  ]);
-
-  function onTaskClick(taskId) {
-
-    const newTasks = tasks.map(task =>
-      {if (task.id == taskId) {
-        return {...task, isCompleted: !task.isCompleted}
-      }
-
-      return task;
-
-    });
-
-    setTasks(newTasks);
-
-  }
-
-  function onDeleteTaskClick(taskId) {
-
-    const newTasks = tasks.filter(task => task.id !== taskId);
-    setTasks(newTasks);
-
-  }
-
-  function onAddTaskClick(title, description) {
-
-    const newTasks = {
-        id: v4(),
-        title: title,
-        description: description,
-        completed: false
-      };
-    setTasks([...tasks, newTasks]);
-
-  }
 
   return (
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p6">
-      <div className="w-[500px] space-y-4">
-        <h1 className="text-3xl text-slate-100 font-bold text-center my-2">Gerenciador de Tarefas</h1>
-        <AddTask 
-          onAddTaskClick={onAddTaskClick}
-        />
-        <Tasks 
-          tasks={tasks} 
-          onTaskClick={onTaskClick} 
-          onDeleteTaskClick={onDeleteTaskClick} 
-        />
+    <div className="w-screen h-screen flex justify-center p-6">
+
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        src="public/videos/bg_video.mp4"
+        autoPlay
+        loop
+        muted
+      />
+
+      <div className="relative z-10 w-3/4">
+
+        <div className="absolute inset-0 bg-black opacity-75 rounded-md"></div>
+        <div className="relative z-20 text-white rounded-md space-y-4 p-6">
+          <h1 className="text-6xl font-bold text-center my-8">Claudio Ruan da Silva</h1>
+
+          <div className="my-8">
+
+            <div className="flex justify-center gap-4">
+
+              <Logos title="Python" />
+              <Logos title="React" />
+              <Logos title="Php" />
+              <Logos title="Mysql" width="24"/>
+              <Logos title="Mongodb" width="32"/>
+
+            </div>
+
+          </div>
+
+          <div className="flex justify-center">
+
+            <div className="w-1/2">
+              Sou junior full stack com mais de 3 anos de experiência na área. Tenho familiaridade com a arquitetura MVC e utilizo tecnologias como PHP(Laravel), Javascript, HTML e CSS para desenvolver o back e frontend. Tenho um conhecimento mais avançado em RPA utilizando Python e as suas libs, por exemplo: Selenium, Seleniumbase, Requests, Beautifulsoup e recentemente criei um robô utilizando a lib Async. Para documentações de API tenho experiência com o swagger. Além disso, estou investindo no meu conhecimento de Node.js e React.js, com o objetivo de me tornar um desenvolvedor full stack mais completo.
+            </div>
+
+            <div>
+
+            
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
   )
 }
