@@ -17,6 +17,7 @@ function Logos(props) {
                 {props.title}
             </span>
         </div>
+        
     )
 }
 
